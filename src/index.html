@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Inter:wght@400;500;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="p-6 font-['Lora'] bg-[#f6f8fa] text-slate-600 text-sm">
@@ -22,11 +22,18 @@
             </h1>
             
             <div class="flex divide-x divide-slate-300">
-                <div class="pr-3 flex items-center gap-1 cursor-pointer">
-                    <span>Serif</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
-                        <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clip-rule="evenodd" />
-                    </svg>
+                <div class="flex items-center relative">
+                    <div class="pr-3 flex items-center gap-1 cursor-pointer">
+                        <span>Serif</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                            <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="rounded-md shadow-md flex flex-col absolute z-10 right-0 top-10 bg-white divide-y divide-slate-100 text-slate-600">
+                        <span class="pl-4 pr-20 py-3 cursor-pointer hover:bg-slate-100 hover:bg-opacity-80 transition-colors font-['Inter']">Serif <span class="text-slate-300">· Inter</span></span>
+                        <span class="pl-4 pr-20 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors font-['Inconsolata']">Mono <span class="text-slate-300">· Insonsolata</span></span>
+                        <span class="pl-4 pr-20 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors">Sans serif <span class="text-slate-300">· Lora</span></span>
+                    </div>
                 </div>
                 <div class="pl-3 flex items-center gap-1">
                     <input class="hidden toggle-mode" type="checkbox" name="mode" id="mode">
