@@ -39,16 +39,16 @@
 
         function fontesTrocar() {
             const $fontesOpcoes = document.querySelectorAll('.js-fontes-opcao')
-            let fonteAtual = $body.getAttribute('data-fonte')
+            let fonteAtual = $body.getAttribute('data-fonte-familia')
 
             $body.classList.add(`font-['${fonteAtual}']`)
 
             $fontesOpcoes.forEach($fonteOpcao => {
                 $fonteOpcao.addEventListener('click', () => {
-                    let fonteEscolhida = $fonteOpcao.getAttribute('data-fonte')
-                    fonteAtual = $body.getAttribute('data-fonte')
+                    let fonteEscolhida = $fonteOpcao.getAttribute('data-fonte-familia')
+                    fonteAtual = $body.getAttribute('data-fonte-familia')
 
-                    $body.setAttribute('data-fonte', fonteEscolhida)
+                    $body.setAttribute('data-fonte-familia', fonteEscolhida)
 
                     $body.classList.remove(`font-['${fonteAtual}']`)
                     $body.classList.add(`font-['${fonteEscolhida}']`)
