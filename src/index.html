@@ -23,13 +23,13 @@
             
             <div class="flex divide-x divide-slate-300">
                 <div class="flex items-center relative">
-                    <div class="pr-3 flex items-center gap-1 cursor-pointer">
+                    <div class="pr-3 flex items-center gap-1 cursor-pointer js-fontes-botao">
                         <span>Serif</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 transition-transform js-fontes-seta">
                             <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clip-rule="evenodd" />
                         </svg>
                     </div>
-                    <div class="rounded-md shadow-md flex flex-col absolute z-10 right-0 top-10 bg-white divide-y divide-slate-100 text-slate-600">
+                    <div class="rounded-md shadow-md hidden flex-col absolute z-10 right-0 top-8 bg-white divide-y divide-slate-100 text-slate-600 js-fontes-modal">
                         <span class="pl-4 pr-20 py-3 cursor-pointer hover:bg-slate-100 hover:bg-opacity-80 transition-colors font-['Inter']">Serif <span class="text-slate-300">· Inter</span></span>
                         <span class="pl-4 pr-20 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors font-['Inconsolata']">Mono <span class="text-slate-300">· Insonsolata</span></span>
                         <span class="pl-4 pr-20 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors">Sans serif <span class="text-slate-300">· Lora</span></span>
@@ -64,5 +64,6 @@
             </div>
         </div>
     </main>
+    <script src="/src/js/index.js"></script>
 </body>
 </html>
