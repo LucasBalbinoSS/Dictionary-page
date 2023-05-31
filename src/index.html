@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-6 font-['Lora'] bg-[#f6f8fa] text-slate-600 text-sm">
+    <header class="pb-6 text-slate-400">
+        <div class="flex justify-between items-center">
+            <h1 class="flex items-center gap-1 text-xl text-slate-600 font-medium">
+                <span>Dictionary</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                </svg>
+            </h1>
+            
+            <div class="flex divide-x divide-slate-300">
+                <div class="pr-3 flex items-center gap-1 cursor-pointer">
+                    <span>Serif</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                        <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="pl-3 flex items-center gap-1">
+                    <input class="hidden toggle-mode" type="checkbox" name="mode" id="mode">
+                    <label class="rounded-xl h-5 w-9 bg-slate-400 cursor-pointer relative toggle-mode-label" for="mode">
+                    </label>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-orange-500">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="hidden w-6 h-6">
+                        <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div>
+            <div class="flex flex-col gap-1">
+                <div class="w-full relative divide-x divide-slate-300">
+                    <input class="w-full rounded-md border border-transparent p-2 pr-12 bg-slate-200 placeholder-slate-400 focus:border focus:border-slate-300 focus:outline-none" type="text" name="word" id="word" placeholder="Eg: horse">
+                    <span class="w-10 rounded-r-md absolute right-0 bottom-0 h-full flex justify-center items-center cursor-pointer hover:bg-slate-300 hover:bg-opacity-60 hover:transition-colors duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-slate-400">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                        </svg>
+                    </span>
+                </div>
+                <label class="text-slate-400 text-xs" for="word">Search for any word...</label>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
