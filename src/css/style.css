@@ -1,0 +1,22 @@
+.toggle-mode-label {
+    position: relative;
+}
+
+.toggle-mode-label::after {
+    content: '';
+    height: 0.80rem;
+    padding-inline: 0.400rem;
+    border-radius: 100%;
+    background-color: #fff;
+
+    position: absolute;
+    left: 5px;
+    top: 50%;
+
+    transform: translateY(-50%);
+    transition: transform 0.2s ease;
+}
+
+.toggle-mode:checked + .toggle-mode-label::after {
+    transform: translate(13px, -50%);
+}
