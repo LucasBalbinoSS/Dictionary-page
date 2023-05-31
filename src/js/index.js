@@ -41,7 +41,7 @@
         function fontesTrocar() {
             const $fonteEscolhida = document.querySelector('.js-fonte-escolhida')
 
-            let fonteEscolhidaTipo = $body.getAttribute('data-fonte-tipo')
+            let fonteEscolhidaTipo = $body.getAttribute('data-fonte-tipo-inicial')
             let fonteAtualTipo = $body.getAttribute('data-fonte-tipo')
             let fonteAtual = $body.getAttribute('data-fonte-familia')
 
