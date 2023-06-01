@@ -72,15 +72,25 @@
         const $containerTextosDinamicos = document.querySelector('.js-container-markup')
 
         $pesquisarBotao.addEventListener('click', () => {
-            const palavraPesquisada = $pesquisarCampo.value
-            const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${palavraPesquisada}`
+            requisicao()
+        })
 
-            requisicao(url)
+        $pesquisarCampo.addEventListener('keydown', () => {
+            teclaEnter(event)
+
+            function teclaEnter(event) {
+                if (event.keyCode === 13) {
+                    requisicao()
+                }
+              }
         })
 
 
         // funcoes
-        function requisicao(url) {
+        function requisicao() {
+            const palavraPesquisada = $pesquisarCampo.value
+            const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${palavraPesquisada}`
+
             fetch(url)
             .then(response => {
                 return response.json()
