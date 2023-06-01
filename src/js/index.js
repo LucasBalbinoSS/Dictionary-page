@@ -129,20 +129,43 @@
 
                 // funcoes internas
                 function textosTransicao() {
-                    $containerTextosDinamicos.classList.remove('opacity-100')
-                    $containerTextosDinamicos.classList.add('opacity-0')
+                    textosAnimacaoSumir($containerTextosDinamicos)
 
                     setTimeout(() => {
                         $containerTextosDinamicos.innerHTML = ''
-
-                        $containerTextosDinamicos.classList.add('opacity-100')
-                        $containerTextosDinamicos.classList.remove('opacity-0')
-
+                        textosAnimacaoAparecer($containerTextosDinamicos)
                         $containerTextosDinamicos.insertAdjacentHTML('beforeend', markup)
                     }, 300)
                 }
+            }).catch(() => {
+                const $markupErro =
+                `
+                <h2 class="text-3xl font-bold">no definitions found</h2>
+                <div class="flex flex-col gap-2">
+                    <p>Sorry pal, we couldn't find definitions for the word you were looking for.</p>
+                    <p>You can try the search again at later time or head to the web instead.</p>
+                </div>
+                
+                `
+
+                textosAnimacaoSumir($containerTextosDinamicos)
+
+                setTimeout(() => {
+                    textosAnimacaoAparecer($containerTextosDinamicos)
+                    $containerTextosDinamicos.innerHTML = $markupErro
+                }, 300)
             })
         }
+    }
+
+    function textosAnimacaoSumir($alvo) {
+        $alvo.classList.remove('opacity-100')
+        $alvo.classList.add('opacity-0')
+    }
+
+    function textosAnimacaoAparecer($alvo) {
+        $alvo.classList.add('opacity-100')
+        $alvo.classList.remove('opacity-0')
     }
 
     function esconder($alvo) {
