@@ -5,7 +5,6 @@
     })
 
 
-    // funcoes
     const fontesModal = () => {
         const $fontesBotao = document.querySelector('.js-fontes-botao')
         const $fontesBotaoSeta = document.querySelector('.js-fontes-seta')
@@ -76,12 +75,18 @@
             const palavraPesquisada = $pesquisarCampo.value
             const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${palavraPesquisada}`
 
+            requisicao(url)
+        })
+
+
+        // funcoes
+        function requisicao(url) {
             fetch(url)
             .then(response => {
                 return response.json()
             })
             .then(data => {
-                const markup = 
+                const markup =
                 `
                     <div>
                         <div class="flex justify-between items-center">
@@ -96,12 +101,15 @@
                             <span>${data[0].phonetic || ""}</span>
                         </div>
                     </div>
-                    <div class="">
-                        <span class="text-slate-400 text-lg relative flex flex-col after:absolute after:left-20 after:right-0 after:translate-y-1/2 after:top-1/2 after:h-px after:bg-slate-300">Meaning</span>
+                    <div class="flex flex-col gap-2">
+                        <span class="text-slate-400 text-lg relative flex flex-col after:absolute after:left-20 after:right-0 after:translate-y-1/2 after:top-1/2 after:h-px after:bg-slate-300 after:bg-opacity-70">Meaning</span>
                         <span>${data[0].meanings[0].definitions[0].definition}</span>
                     </div>
-                    <div class="pl-4 italic relative before:absolute before:h-full before:w-1 before:left-0 before:bg-slate-600">
-                        <span>${data[0].meanings[0].definitions[0].example || ""}</span>
+                    <div class="flex flex-col gap-2">
+                        <span class="text-slate-400 text-lg relative flex flex-col after:absolute after:left-20 after:right-0 after:translate-y-1/2 after:top-1/2 after:h-px after:bg-slate-300 after:bg-opacity-70">Example</span>
+                        <div class="pl-4 italic relative before:absolute before:h-full before:w-1 before:left-0 before:bg-slate-600">
+                            <span>${data[0].meanings[0].definitions[0].example || "<span class=\"text-slate-400 text-lg\">...</span>"}</span>
+                        </div>
                     </div>
                 `
 
@@ -124,7 +132,7 @@
                     }, 300)
                 }
             })
-        })
+        }
     }
 
     function esconder($alvo) {
