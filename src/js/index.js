@@ -1,39 +1,40 @@
 (() => {
     document.addEventListener('DOMContentLoaded', () => {
-        fontesModal()
+        modalFontes()
+        
         requisiçãoApi()
     })
 
 
-    const fontesModal = () => {
+    const modalFontes = () => {
         const $fontesBotao = document.querySelector('.js-fontes-botao')
         const $fontesBotaoSeta = document.querySelector('.js-fontes-seta')
-        const $fontesModal = document.querySelector('.js-fontes-modal')
+        const $modalFontes = document.querySelector('.js-fontes-modal')
         const $fontesOpcoes = document.querySelectorAll('.js-fontes-opcao')
         const $body = document.querySelector('body')
 
         $fontesBotao.addEventListener('click', () => {
-            fontesModalMostrar()
-            fontesModalEsconder()
+            modalFontesMostrar()
+            modalFontesEsconder()
         })
 
         fontesTrocar()
 
 
         // funcoes internas
-        function fontesModalMostrar() {
-            mostrar($fontesModal)
+        function modalFontesMostrar() {
+            mostrar($modalFontes)
             $fontesBotaoSeta.classList.toggle('rotate-180')
         }
 
-        function fontesModalEsconder() {
+        function modalFontesEsconder() {
             $body.addEventListener('click', (evento) => {
 
                 if (evento.target.closest('.js-fontes-botao')) {
                     return
                 }
 
-                esconder($fontesModal)
+                esconder($modalFontes)
                 $fontesBotaoSeta.classList.remove('rotate-180')
             })
         }
