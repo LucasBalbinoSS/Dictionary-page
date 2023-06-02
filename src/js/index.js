@@ -6,6 +6,8 @@
     })
 
     const $body = document.querySelector('body')
+    const $pesquisarCampo = document.querySelector('.js-pesquisar-campo')
+    const $containerTextosDinamicos = document.querySelector('.js-container-markup')
 
     const modalFontes = () => {
         const $fontesBotao = document.querySelector('.js-fontes-botao')
@@ -75,8 +77,56 @@
                     const idiomaEscolhido = $idiomaOpcao.getAttribute('data-idioma')
 
                     $body.setAttribute('data-idioma', idiomaEscolhido)
+                    elementosAlterar()
                 })
             })
+        }
+
+        function elementosAlterar() {
+            const $bandeiraBr = document.querySelector('.js-bandeira-br')
+            const $dicionarioTituloBr = document.querySelector('.js-dicionario-titulo-br')
+            const $bandeiraUs = document.querySelector('.js-bandeira-us')
+            const $dicionarioTituloUs = document.querySelector('.js-dicionario-titulo-us')
+            const $labelUs = document.querySelector('.js-label-us')
+            const $labelBr = document.querySelector('.js-label-br')
+
+            if ($body.getAttribute('data-idioma') == 'br') {
+                $bandeiraUs.classList.add('hidden')
+                $bandeiraBr.classList.remove('hidden')
+
+                $dicionarioTituloUs.classList.add('hidden')
+                $dicionarioTituloBr.classList.remove('hidden')
+
+                $labelUs.classList.add('hidden')
+                $labelBr.classList.remove('hidden')
+
+                $pesquisarCampo.placeholder = 'ex: maçã'
+                $pesquisarCampo.value = ''
+
+                textosAnimacaoSumir($containerTextosDinamicos)
+
+                setTimeout(() => {
+                    $containerTextosDinamicos.innerHTML = ''
+                }, 300);
+            } else {
+                $bandeiraUs.classList.remove('hidden')
+                $bandeiraBr.classList.add('hidden')
+
+                $dicionarioTituloUs.classList.remove('hidden')
+                $dicionarioTituloBr.classList.add('hidden')
+
+                $labelUs.classList.remove('hidden')
+                $labelBr.classList.add('hidden')
+
+                $pesquisarCampo.placeholder = 'eg: apple'
+                $pesquisarCampo.value = ''
+
+                textosAnimacaoSumir($containerTextosDinamicos)
+
+                setTimeout(() => {
+                    $containerTextosDinamicos.innerHTML = ''
+                }, 300);
+            }
         }
     }
 
@@ -107,7 +157,6 @@
 
     const requisicoesApi = () => {
         const $pesquisarBotao = document.querySelector('.js-pesquisar-botao')
-        const $pesquisarCampo = document.querySelector('.js-pesquisar-campo')
         const $containerTextosDinamicos = document.querySelector('.js-container-markup')
 
         $pesquisarBotao.addEventListener('click', () => {
@@ -205,7 +254,6 @@
                 return response.json()
             })
             .then(data => {
-                console.log(data)
                 const conteudo =
                 `
                     <div>
