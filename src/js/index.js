@@ -5,6 +5,8 @@
         requisicoesApi()
     })
 
+    console.log('teste')
+
     const $body = document.querySelector('body')
     const $pesquisarCampo = document.querySelector('.js-pesquisar-campo')
     const $containerTextosDinamicos = document.querySelector('.js-container-markup')
