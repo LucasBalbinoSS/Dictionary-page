@@ -1,7 +1,7 @@
 (() => {
     document.addEventListener('DOMContentLoaded', () => {
         modalFontes()
-        
+        modalIdiomas()
         requisiçãoApi()
     })
 
@@ -63,6 +63,31 @@
                     $body.classList.remove(`font-['${fonteAtual}']`)
                     $body.classList.add(`font-['${fonteEscolhida}']`)
                 })
+            })
+        }
+    }
+
+    const modalIdiomas = () => {
+        const $idiomasBotao = document.querySelector('.js-idiomas-botao')
+        const $modalIdiomas = document.querySelector('.js-idiomas-modal')
+
+        $idiomasBotao.addEventListener('click', () => {
+            modalIdiomasMostrar()
+            modalIdiomasEsconder()
+        })
+
+        function modalIdiomasMostrar() {
+            mostrar($modalIdiomas)
+        }
+
+        function modalIdiomasEsconder() {
+            addEventListener('click', (evento) => {
+
+                if (evento.target.closest('.js-idiomas-botao')) {
+                    return
+                }
+
+                esconder($modalIdiomas)
             })
         }
     }

@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Lora:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="p-6 bg-[#f6f8fa] text-slate-600 text-sm" data-fonte-familia="Lora" data-fonte-tipo-inicial="Serif">
+<body class="h-screen p-6 bg-[#f6f8fa] text-slate-600 text-sm" data-fonte-familia="Lora" data-fonte-tipo-inicial="Serif">
     <header class="pb-3 text-slate-400">
         <div class="flex justify-between items-center">
             <h1 class="flex items-center gap-1 text-xl text-slate-600 font-medium">
@@ -35,15 +35,18 @@
                         <span data-fonte-familia="Roboto" data-fonte-tipo="Sans" class="pl-4 pr-20 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors js-fontes-opcao">Sans <span class="text-slate-300">· Roboto</span></span>
                     </div>
                 </div>
-                <div class="pl-3 flex items-center gap-1">
-                    <input class="hidden toggle-mode" type="checkbox" name="mode" id="mode">
-                    <label class="rounded-xl h-5 w-9 bg-slate-400 cursor-pointer relative toggle-mode-label" for="mode">
-                    </label>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-orange-500">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                <div class="pl-3 flex items-center gap-1 cursor-pointer relative js-idiomas-botao">
+                    <div class="rounded-md shadow-md hidden flex-col absolute bg-white z-10 right-0 top-8 divide-y divide slate-100 text-slate-600 js-idiomas-modal">
+                        <span class="block pl-4 pr-20 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors js-idioma-pt">eng-us</span>
+                        <span class="block pl-4 pr-20 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors js-idioma-us">pt-br</span>
+                    </div>
+                    <svg width="40" style="display:none;" version="1.1" viewBox="0 0 300 300" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g><polygon points="   273.668,78 34.081,78 34.433,230 273.919,230  " style="fill:#83D816;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/><polygon points="   152.081,207.501 77.207,156 152.081,104.499 226.954,156  " style="fill:#FEDA38;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/><circle cx="152.081" cy="156" r="26.734" style="fill:#288EEA;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/><path d="   M122.82,148.11c0,0,31.921-10.64,58.522,15.96" style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/></g><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/>
+                        <g/>
                     </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="hidden w-6 h-6">
-                        <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd" />
+                    <svg width="35" id="United_x5F_States" style="enable-background:new 0 0 300 300;" version="1.1" viewBox="0 0 300 300" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g><rect height="120" style="fill:#FFFFFF;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" width="240" x="34" y="94"/><rect height="24" style="fill:#F97DA3;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" width="240" x="34" y="70"/><rect height="24" style="fill:#F97DA3;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" width="240" x="34" y="118"/><rect height="24" style="fill:#F97DA3;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" width="240" x="34" y="166"/><rect height="30" style="fill:#F97DA3;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" width="240" x="34" y="214"/><polygon points="   154,70 34,70 34.176,166 154,166  " style="fill:#288EEA;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="62" x2="62" y1="94" y2="110"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="54" x2="70" y1="102" y2="102"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="94" x2="94" y1="94" y2="110"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="86" x2="102" y1="102" y2="102"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="126" x2="126" y1="94" y2="110"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="118" x2="134" y1="102" y2="102"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="94" x2="94" y1="126" y2="142"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="86" x2="102" y1="134" y2="134"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="126" x2="126" y1="126" y2="142"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="118" x2="134" y1="134" y2="134"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="62" x2="62" y1="126" y2="142"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="54" x2="70" y1="134" y2="134"/></g><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/>
+                        <g/>
                     </svg>
                 </div>
             </div>
