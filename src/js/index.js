@@ -2,16 +2,16 @@
     document.addEventListener('DOMContentLoaded', () => {
         modalFontes()
         modalIdiomas()
-        requisiçãoApi()
+        requisicoesApi()
     })
 
+    const $body = document.querySelector('body')
 
     const modalFontes = () => {
         const $fontesBotao = document.querySelector('.js-fontes-botao')
         const $fontesBotaoSeta = document.querySelector('.js-fontes-seta')
         const $modalFontes = document.querySelector('.js-fontes-modal')
         const $fontesOpcoes = document.querySelectorAll('.js-fontes-opcao')
-        const $body = document.querySelector('body')
 
         $fontesBotao.addEventListener('click', () => {
             modalFontesMostrar()
@@ -19,6 +19,7 @@
         })
 
         fontesTrocar()
+        idiomaTrocar()
 
 
         // funcoes internas
@@ -65,6 +66,18 @@
                 })
             })
         }
+
+        function idiomaTrocar() {
+            const $idiomasOpcao = document.querySelectorAll('.js-idiomas-opcao')
+
+            $idiomasOpcao.forEach($idiomaOpcao => {
+                $idiomaOpcao.addEventListener('click', () => {
+                    const idiomaEscolhido = $idiomaOpcao.getAttribute('data-idioma')
+
+                    $body.setAttribute('data-idioma', idiomaEscolhido)
+                })
+            })
+        }
     }
 
     const modalIdiomas = () => {
@@ -92,13 +105,13 @@
         }
     }
 
-    const requisiçãoApi = () => {
+    const requisicoesApi = () => {
         const $pesquisarBotao = document.querySelector('.js-pesquisar-botao')
         const $pesquisarCampo = document.querySelector('.js-pesquisar-campo')
         const $containerTextosDinamicos = document.querySelector('.js-container-markup')
 
         $pesquisarBotao.addEventListener('click', () => {
-            requisicao()
+            idiomaValidar()
         })
 
         $pesquisarCampo.addEventListener('keydown', () => {
@@ -106,14 +119,14 @@
 
             function teclaEnter(event) {
                 if (event.keyCode === 13) {
-                    requisicao()
+                    idiomaValidar()
                 }
               }
         })
 
 
         // funcoes
-        function requisicao() {
+        function requisicaoUs() {
             const palavraPesquisada = $pesquisarCampo.value
             const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${palavraPesquisada}`
 
@@ -122,7 +135,7 @@
                 return response.json()
             })
             .then(data => {
-                const markup =
+                const conteudo =
                 `
                     <div>
                         <div class="flex justify-between items-center">
@@ -160,7 +173,7 @@
                     setTimeout(() => {
                         $containerTextosDinamicos.innerHTML = ''
                         textosAnimacaoAparecer($containerTextosDinamicos)
-                        $containerTextosDinamicos.insertAdjacentHTML('beforeend', markup)
+                        $containerTextosDinamicos.insertAdjacentHTML('beforeend', conteudo)
                     }, 300)
                 }
             }).catch(() => {
@@ -168,8 +181,8 @@
                 `
                 <h2 class="text-3xl font-bold">no definitions found</h2>
                 <div class="flex flex-col gap-2">
-                    <p>Sorry pal, we couldn't find definitions for the word you were looking for.</p>
-                    <p>You can try the search again at later time or head to the web instead.</p>
+                    <p>Sorry pal, we couldn't find definitions for the word you were looking for...</p>
+                    <p>You can try the search again at later time or <span class="font-bold">change the language in the menu above</span>.</p>
                 </div>
                 
                 `
@@ -181,6 +194,76 @@
                     $containerTextosDinamicos.innerHTML = $markupErro
                 }, 300)
             })
+        }
+
+        function requisicaoBr() {
+            const palavraPesquisada = $pesquisarCampo.value
+            const url = `https://dicio-api-ten.vercel.app/v2/${palavraPesquisada}`
+
+            fetch(url)
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                console.log(data)
+                const conteudo =
+                `
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <h2 class="text-3xl font-bold js-titulo-dinamico">${palavraPesquisada}</h2>
+                        </div>
+                        <div class="flex flex-col text-slate-400 text-opacity-70">
+                            <span>${data[0].partOfSpeech}</span>
+                            <span>${data[0].etymology}</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <span class="text-slate-400 text-lg relative flex flex-col after:absolute after:left-28 after:right-0 after:translate-y-1/2 after:top-1/2 after:h-px after:bg-slate-300 after:bg-opacity-70">Significado</span>
+                        <span>${data[0].meanings[0]}</span>
+                    </div>
+                `
+
+                // aplica transicao na entrada dos textos
+                textosTransicao()
+
+
+                // funcoes internas
+                function textosTransicao() {
+                    textosAnimacaoSumir($containerTextosDinamicos)
+
+                    setTimeout(() => {
+                        $containerTextosDinamicos.innerHTML = ''
+                        textosAnimacaoAparecer($containerTextosDinamicos)
+                        $containerTextosDinamicos.insertAdjacentHTML('beforeend', conteudo)
+                    }, 300)
+                }
+            }).catch(() => {
+                const $markupErro =
+                `
+                <h2 class="text-3xl font-bold">nenhuma definição encontrada</h2>
+                <div class="flex flex-col gap-2">
+                    <p>Desculpe amigo, não encontramos definições para a palavra que você estava procurando...</p>
+                    <p>Você pode tentar a pesquisa novamente mais tarde ou <span class="font-bold">alterar o idioma no menu acima</span>.</p>
+                </div>
+                
+                `
+
+                textosAnimacaoSumir($containerTextosDinamicos)
+
+                setTimeout(() => {
+                    textosAnimacaoAparecer($containerTextosDinamicos)
+                    $containerTextosDinamicos.innerHTML = $markupErro
+                }, 300)
+            })
+        }
+
+        function idiomaValidar() {
+            if ($body.getAttribute('data-idioma') == 'us') {
+                requisicaoUs()
+            }
+            else {
+                requisicaoBr()
+            }
         }
     }
 
