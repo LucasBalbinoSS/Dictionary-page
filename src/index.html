@@ -11,10 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Lora:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="h-screen p-6 bg-[#f6f8fa] text-slate-600 text-sm" data-fonte-familia="Lora" data-fonte-tipo-inicial="Serif" data-idioma="us">
+<body class="h-screen p-6 bg-[#f6f8fa] text-slate-600 text-lg" data-fonte-familia="Lora" data-fonte-tipo-inicial="Serif" data-idioma="us">
     <header class="pb-3 text-slate-400 max-w-xl mx-auto">
         <div class="flex justify-between items-center">
-            <h1 class="flex items-center gap-1 text-xl text-slate-600 font-medium">
+            <h1 class="flex items-center gap-1 text-2xl text-slate-600 font-medium">
                 <span class="js-dicionario-titulo-us">Dictionary</span>
                 <span class="hidden js-dicionario-titulo-br">Dicionário</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -30,25 +30,28 @@
                             <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clip-rule="evenodd" />
                         </svg>
                     </div>
-                    <div class="rounded-md shadow-md hidden flex-col absolute z-10 right-0 top-8 bg-white divide-y divide-slate-100 text-slate-600 js-fontes-modal">
-                        <span data-fonte-familia="Lora" data-fonte-tipo="Serif" class="pl-4 pr-20 py-3 cursor-pointer hover:bg-slate-100 hover:bg-opacity-80 transition-colors js-fontes-opcao">Serif <span class="text-slate-300 font-['Roboto']">· Lora</span></span>
-                        <span data-fonte-familia="Inconsolata" data-fonte-tipo="Mono" class="pl-4 pr-20 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors js-fontes-opcao">Mono <span class="text-slate-300 font-['Inconsolata']">· Insonsolata</span></span>
-                        <span data-fonte-familia="Roboto" data-fonte-tipo="Sans" class="pl-4 pr-20 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors js-fontes-opcao">Sans <span class="text-slate-300">· Roboto</span></span>
+                    <div class="rounded-md shadow-md hidden flex-col absolute z-10 right-0 top-12 bg-white divide-y divide-slate-100 text-slate-600 js-fontes-modal">
+                        <span data-fonte-familia="Lora" data-fonte-tipo="Serif" class="pl-4 pr-14 py-3 cursor-pointer hover:bg-slate-100 hover:bg-opacity-80 transition-colors js-fontes-opcao">Serif <span class="text-slate-300 font-['Roboto']">· Lora</span></span>
+                        <span data-fonte-familia="Inconsolata" data-fonte-tipo="Mono" class="pl-4 pr-14 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors js-fontes-opcao">Mono <span class="text-slate-300 font-['Inconsolata']">· Insonsolata</span></span>
+                        <span data-fonte-familia="Roboto" data-fonte-tipo="Sans" class="pl-4 pr-14 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors js-fontes-opcao">Sans <span class="text-slate-300">· Roboto</span></span>
                     </div>
                 </div>
                 <div class="pl-3 flex items-center gap-1 cursor-pointer relative js-idiomas-botao">
-                    <div class="rounded-md shadow-md hidden flex-col absolute bg-white z-10 right-0 top-8 divide-y divide slate-100 text-slate-600 js-idiomas-modal">
-                        <span data-idioma="us" class="block pl-4 pr-20 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors js-idiomas-opcao">eng-us</span>
-                        <span data-idioma="br" class="block pl-4 pr-20 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors js-idiomas-opcao">pt-br</span>
-                    </div>
-                    <svg width="35" class="hidden js-bandeira-br" version="1.1" viewBox="0 0 300 300" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <svg width="40" class="hidden js-bandeira-br" version="1.1" viewBox="0 0 300 300" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <g><polygon points="   273.668,78 34.081,78 34.433,230 273.919,230  " style="fill:#83D816;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/><polygon points="   152.081,207.501 77.207,156 152.081,104.499 226.954,156  " style="fill:#FEDA38;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/><circle cx="152.081" cy="156" r="26.734" style="fill:#288EEA;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/><path d="   M122.82,148.11c0,0,31.921-10.64,58.522,15.96" style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/></g><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/>
                         <g/>
                     </svg>
-                    <svg width="35" class="js-bandeira-us" style="enable-background:new 0 0 300 300;" version="1.1" viewBox="0 0 300 300" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <svg width="40" class="js-bandeira-us" style="enable-background:new 0 0 300 300;" version="1.1" viewBox="0 0 300 300" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <g><rect height="120" style="fill:#FFFFFF;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" width="240" x="34" y="94"/><rect height="24" style="fill:#F97DA3;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" width="240" x="34" y="70"/><rect height="24" style="fill:#F97DA3;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" width="240" x="34" y="118"/><rect height="24" style="fill:#F97DA3;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" width="240" x="34" y="166"/><rect height="30" style="fill:#F97DA3;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" width="240" x="34" y="214"/><polygon points="   154,70 34,70 34.176,166 154,166  " style="fill:#288EEA;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="62" x2="62" y1="94" y2="110"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="54" x2="70" y1="102" y2="102"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="94" x2="94" y1="94" y2="110"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="86" x2="102" y1="102" y2="102"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="126" x2="126" y1="94" y2="110"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="118" x2="134" y1="102" y2="102"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="94" x2="94" y1="126" y2="142"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="86" x2="102" y1="134" y2="134"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="126" x2="126" y1="126" y2="142"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="118" x2="134" y1="134" y2="134"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="62" x2="62" y1="126" y2="142"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="54" x2="70" y1="134" y2="134"/></g><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/>
                         <g/>
                     </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 transition-transform">
+                        <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clip-rule="evenodd" />
+                    </svg>
+                    <div class="rounded-md shadow-md hidden flex-col absolute bg-white z-10 right-0 top-12 divide-y divide slate-100 text-slate-600 js-idiomas-modal">
+                        <span data-idioma="us" class="block pl-4 pr-20 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors js-idiomas-opcao">eng-us</span>
+                        <span data-idioma="br" class="block pl-4 pr-20 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors js-idiomas-opcao">pt-br</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -57,15 +60,15 @@
         <div class="pb-6">
             <div class="flex flex-col gap-1">
                 <div class="w-full relative divide-x divide-slate-300">
-                    <input class="w-full rounded-md border border-transparent p-2 pr-12 bg-slate-200 placeholder-slate-400 focus:border focus:border-slate-300 focus:outline-none js-pesquisar-campo" type="text" name="word" id="word" placeholder="Eg: apple">
-                    <span class="w-10 rounded-r-md absolute right-0 bottom-0 h-full flex justify-center items-center cursor-pointer hover:bg-slate-300 hover:bg-opacity-60 hover:transition-colors duration-200 js-pesquisar-botao">
+                    <input class="w-full rounded-md border border-transparent p-3 pr-20 bg-slate-200 placeholder-slate-400 focus:border focus:border-slate-300 focus:outline-none js-pesquisar-campo" type="text" name="word" id="word" placeholder="Eg: apple">
+                    <span class="w-[73px] rounded-r-md absolute right-0 bottom-0 h-full flex justify-center items-center cursor-pointer hover:bg-slate-300 hover:bg-opacity-60 hover:transition-colors duration-200 js-pesquisar-botao">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-slate-400">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                         </svg>
                     </span>
                 </div>
-                <label class="text-slate-400 text-opacity-70 text-xs js-label-us" for="word">Type the word here...</label>
-                <label class="hidden text-slate-400 text-opacity-70 text-xs js-label-br" for="word">Digite a palavra aqui...</label>
+                <label class="text-slate-400 text-opacity-70 text-sm js-label-us" for="word">Type the word here...</label>
+                <label class="hidden text-slate-400 text-opacity-70 text-sm js-label-br" for="word">Digite a palavra aqui...</label>
             </div>
         </div>
         <div class="flex flex-col gap-8 opacity-0 transition-opacity duration-300 js-container-markup">
