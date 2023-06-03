@@ -270,7 +270,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col gap-2">
-                        <span class="text-slate-400 text-xl relative flex flex-col after:absolute after:left-28 after:right-0 after:translate-y-1/2 after:top-1/2 after:h-px after:bg-slate-300 after:bg-opacity-70">Significado</span>
+                        <span class="text-slate-400 text-xl relative flex flex-col after:absolute after:left-32 after:right-0 after:translate-y-1/2 after:top-1/2 after:h-px after:bg-slate-300 after:bg-opacity-70">Significado</span>
                         <span>${data[0].meanings[0]}</span>
                     </div>
                 `
