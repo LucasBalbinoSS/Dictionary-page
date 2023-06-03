@@ -134,6 +134,7 @@
     const modalIdiomas = () => {
         const $idiomasBotao = document.querySelector('.js-idiomas-botao')
         const $modalIdiomas = document.querySelector('.js-idiomas-modal')
+        const $idiomasBotaoSeta = document.querySelector('.js-idiomas-seta')
 
         $idiomasBotao.addEventListener('click', () => {
             modalIdiomasMostrar()
@@ -142,6 +143,7 @@
 
         function modalIdiomasMostrar() {
             mostrar($modalIdiomas)
+            $idiomasBotaoSeta.classList.toggle('rotate-180')
         }
 
         function modalIdiomasEsconder() {
@@ -152,6 +154,7 @@
                 }
 
                 esconder($modalIdiomas)
+                $idiomasBotaoSeta.classList.remove('rotate-180')
             })
         }
     }
@@ -201,11 +204,11 @@
                         </div>
                     </div>
                     <div class="flex flex-col gap-2">
-                        <span class="text-slate-400 text-xl relative flex flex-col after:absolute after:left-20 after:right-0 after:translate-y-1/2 after:top-1/2 after:h-px after:bg-slate-300 after:bg-opacity-70">Meaning</span>
+                        <span class="text-slate-400 text-xl relative flex flex-col after:absolute after:left-24 after:right-0 after:translate-y-1/2 after:top-1/2 after:h-px after:bg-slate-300 after:bg-opacity-70">Meaning</span>
                         <span>${data[0].meanings[0].definitions[0].definition}</span>
                     </div>
                     <div class="flex flex-col gap-2">
-                        <span class="text-slate-400 text-xl relative flex flex-col after:absolute after:left-20 after:right-0 after:translate-y-1/2 after:top-1/2 after:h-px after:bg-slate-300 after:bg-opacity-70">Example</span>
+                        <span class="text-slate-400 text-xl relative flex flex-col after:absolute after:left-24 after:right-0 after:translate-y-1/2 after:top-1/2 after:h-px after:bg-slate-300 after:bg-opacity-70">Example</span>
                         <div class="pl-4 italic relative before:absolute before:h-full before:w-1 before:left-0 before:bg-slate-600">
                             <span>${data[0].meanings[0].definitions[0].example || "<span class=\"text-slate-400 text-lg\">...</span>"}</span>
                         </div>
