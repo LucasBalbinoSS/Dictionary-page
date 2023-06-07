@@ -85,9 +85,8 @@
 
         function elementosAlterar() {
             const $bandeiraBr = document.querySelector('.js-bandeira-br')
-            const $dicionarioTituloBr = document.querySelector('.js-dicionario-titulo-br')
             const $bandeiraUs = document.querySelector('.js-bandeira-us')
-            const $dicionarioTituloUs = document.querySelector('.js-dicionario-titulo-us')
+            const $dicionarioTituloUs = document.querySelector('.js-dicionario-titulo')
             const $labelUs = document.querySelector('.js-label-us')
             const $labelBr = document.querySelector('.js-label-br')
 
@@ -95,8 +94,7 @@
                 $bandeiraUs.classList.add('hidden')
                 $bandeiraBr.classList.remove('hidden')
 
-                $dicionarioTituloUs.classList.add('hidden')
-                $dicionarioTituloBr.classList.remove('hidden')
+                $dicionarioTituloUs.innerHTML = 'Dicionário'
 
                 $labelUs.classList.add('hidden')
                 $labelBr.classList.remove('hidden')
@@ -113,8 +111,7 @@
                 $bandeiraUs.classList.remove('hidden')
                 $bandeiraBr.classList.add('hidden')
 
-                $dicionarioTituloUs.classList.remove('hidden')
-                $dicionarioTituloBr.classList.add('hidden')
+                $dicionarioTituloUs.innerHTML = 'Dictionary'
 
                 $labelUs.classList.remove('hidden')
                 $labelBr.classList.add('hidden')
