@@ -254,7 +254,7 @@
                 `
                     <div>
                         <div class="flex justify-between items-center">
-                            <h2 class="text-4xl font-bold js-titulo-dinamico">${palavraPesquisada}</h2>
+                            <h2 class="text-4xl font-bold js-titulo-dinamico">${palavraPesquisada.toLowerCase()}</h2>
                         </div>
                         <div class="flex flex-col mt-1.5 text-slate-400 text-opacity-70">
                             <span>${data[0].partOfSpeech}</span>
