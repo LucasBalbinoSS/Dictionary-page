@@ -87,17 +87,14 @@
             const $bandeiraBr = document.querySelector('.js-bandeira-br')
             const $bandeiraUs = document.querySelector('.js-bandeira-us')
             const $dicionarioTitulo = document.querySelector('.js-dicionario-titulo')
-            const $labelUs = document.querySelector('.js-label-us')
-            const $labelBr = document.querySelector('.js-label-br')
+            const $label = document.querySelector('.js-label')
 
             if ($body.getAttribute('data-idioma') == 'br') {
                 $bandeiraUs.classList.add('hidden')
                 $bandeiraBr.classList.remove('hidden')
 
                 $dicionarioTitulo.innerHTML = 'Dicionário'
-
-                $labelUs.classList.add('hidden')
-                $labelBr.classList.remove('hidden')
+                $label.innerHTML = 'Digite a palavra aqui...'
 
                 $pesquisarCampo.placeholder = 'ex: maçã'
                 $pesquisarCampo.value = ''
@@ -112,9 +109,7 @@
                 $bandeiraBr.classList.add('hidden')
 
                 $dicionarioTitulo.innerHTML = 'Dictionary'
-
-                $labelUs.classList.remove('hidden')
-                $labelBr.classList.add('hidden')
+                $label.innerHTML = 'Type the word here...'
 
                 $pesquisarCampo.placeholder = 'eg: apple'
                 $pesquisarCampo.value = ''
