@@ -190,7 +190,7 @@
                                 <path d="M15.932 7.757a.75.75 0 011.061 0 6 6 0 010 8.486.75.75 0 01-1.06-1.061 4.5 4.5 0 000-6.364.75.75 0 010-1.06z" />
                             </svg>
                         </div>
-                        <div class="text-slate-400 text-opacity-70">
+                        <div class="mt-1.5 text-slate-400 text-opacity-70">
                             <span>${data[0].meanings[0].partOfSpeech}</span>
                             <span>${data[0].phonetic || ""}</span>
                         </div>
@@ -256,7 +256,7 @@
                         <div class="flex justify-between items-center">
                             <h2 class="text-4xl font-bold js-titulo-dinamico">${palavraPesquisada}</h2>
                         </div>
-                        <div class="flex flex-col text-slate-400 text-opacity-70">
+                        <div class="flex flex-col mt-1.5 text-slate-400 text-opacity-70">
                             <span>${data[0].partOfSpeech}</span>
                             <span>${data[0].etymology}</span>
                         </div>
