@@ -3,3 +3,15 @@
     -ms-user-select: none;
     user-select: none;
 }
+
+.card-container-interno-1 {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 1s ease;
+}
+
+.card-container.ativo .card-container-interno-1{
+    max-height: 2000px;
+    opacity: 1;
+}
