@@ -2,75 +2,96 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dictionary page</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Lora:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Merriweather:ital,wght@0,400;1,400;1,700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="h-screen p-6 bg-[#f6f8fa] text-slate-600 text-base" data-fonte-familia="Poppins" data-fonte-tipo-inicial="Serif" data-idioma="us">
-    <header class="pb-3 text-slate-400 max-w-xl mx-auto">
-        <div class="flex justify-between items-center">
-            <h1 class="flex items-center gap-1 text-2xl text-slate-600 font-medium">
-                <span class="js-dicionario-titulo">Dictionary</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+<body class="h-screen flex items-center justify-center bg-[#4d59fb] font-['Poppins'] text-slate-700" data-fonte-familia="Poppins" data-fonte-tipo-inicial="Sans">
+    <section class="h-full w-full max-w-xl py-6 px-8 bg-white shadow-xl sm:h-auto sm:rounded-md md:py-10 md:px-14 card-container js-card-container">
+        <div>
+            <div class="flex items-center justify-between relative">
+                <h1 class="flex items-center gap-1 text-2xl md:text-3xl js-dicionario-tt">
+                    <span>Dictionary</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 md:w-8 h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                    </svg>
+                </h1>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-9 h-9 cursor-pointer js-menu-lateral-btn">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
-            </h1>
-            
-            <div class="flex divide-x divide-slate-300">
-                <div class="flex items-center relative">
-                    <div class="pr-3 flex items-center gap-1 cursor-pointer js-fontes-botao">
+                <div class="hidden rounded-md border border-solid border-slate-100 absolute right-0 top-11 z-10 bg-white shadow-md w-40 divide-y divide-slate-200 js-menu-lateral">
+                    <button class="flex items-center justify-between px-4 py-3 w-full transition-colors duration-200 hover:bg-slate-100 js-fontes-btn">
                         <span class="js-fonte-escolhida"></span>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 transition-transform js-fontes-seta">
-                            <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clip-rule="evenodd" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 transition-transform js-fontes-vetor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                         </svg>
-                    </div>
-                    <div class="rounded-md shadow-md hidden flex-col absolute z-10 right-0 top-12 bg-white divide-y divide-slate-100 text-slate-600 js-fontes-modal">
-                        <span data-fonte-familia="Inconsolata" data-fonte-tipo="Mono" class="pl-4 pr-14 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors js-fontes-opcao">Mono <span class="text-slate-300 font-['Inconsolata']">· Insonsolata</span></span>
-                        <span data-fonte-familia="Poppins" data-fonte-tipo="Sans" class="pl-4 pr-14 py-3 cursor-pointer hover:bg-slate-100 hover:bg-opacity-80 transition-colors js-fontes-opcao">Sans <span class="text-slate-300 text-base font-['Poppins']">· Poppins</span></span>
-                        <span data-fonte-familia="Lora" data-fonte-tipo="Serif" class="pl-4 pr-14 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors js-fontes-opcao">Serif <span class="text-slate-300 font-['Lora']">· Lora</span></span>
+                    </button>
+                    <ul class="hidden pl-4 divide-y divide-slate-200 relative before:absolute before:left-4 before:top-3 before:bottom-3 before:w-[1px] before:bg-slate-200 js-menu-lateral-interno-1">
+                        <li class="pl-2 pr-4 py-3 flex justify-between items-center cursor-pointer transition-colors duration-200 hover:bg-slate-50 js-fontes-opcao" data-fonte-familia="Inconsolata" data-fonte-tipo="Mono">
+                            <span>Mono</span>
+                            <span>·</span>
+                            <span class="text-slate-400 font-['Inconsolata']">Aa</span></li>
+                        <li class="pl-2 pr-4 py-3 flex justify-between items-center cursor-pointer transition-colors duration-200 hover:bg-slate-50 js-fontes-opcao" data-fonte-familia="Poppins" data-fonte-tipo="Sans">
+                            <span>Sans</span>
+                            <span>·</span>
+                            <span class="text-slate-400 font-['Poppins']">Aa</span></li>
+                        <li class="pl-2 pr-4 py-3 flex justify-between items-center cursor-pointer transition-colors duration-200 hover:bg-slate-50 js-fontes-opcao" data-fonte-familia="Merriweather" data-fonte-tipo="Serif">
+                            <span>Serif</span>
+                            <span>·</span>
+                            <span class="text-slate-400 font-['Merriweather']">Aa</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="relative mt-3">
+                <input class="rounded-md border border-solid border-slate-300 w-full p-3 pr-14 bg-transparent placeholder-slate-300 focus:outline-none focus:border-indigo-400 js-pesquisar-campo" type="text" name="pesquisar" id="pesquisar" placeholder="Eg: apple">
+                <span class="border-l border-solid border-slate-300 absolute right-1.5 top-0 h-full w-11 flex items-center justify-center cursor-pointer js-pesquisar-botao">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-slate-400">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </span>
+            </div>
+            <label class="w-full inline-block text-sm text-slate-400 js-label" for="pesquisar">Type any word here to get the meaning...</label>
+        </div>
+        <div class="divide-y divide-slate-200 card-container-interno-1">
+            <div class="mt-8 flex justify-between items-center">
+                <div>
+                    <h2 class="text-4xl font-medium md:text-5xl js-palavra-pesquisada">pleasure</h2>
+                    <div class="text-slate-400 mt-1">
+                        <span class="js-palavra-tipo"></span>
+                        <span class="js-palavra-fonetica"></span>
                     </div>
                 </div>
-                <div class="pl-3 flex items-center gap-1 cursor-pointer relative js-idiomas-botao">
-                    <svg width="40" class="hidden js-bandeira-br" version="1.1" viewBox="0 0 300 300" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <g><polygon points="   273.668,78 34.081,78 34.433,230 273.919,230  " style="fill:#83D816;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/><polygon points="   152.081,207.501 77.207,156 152.081,104.499 226.954,156  " style="fill:#FEDA38;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/><circle cx="152.081" cy="156" r="26.734" style="fill:#288EEA;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/><path d="   M122.82,148.11c0,0,31.921-10.64,58.522,15.96" style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/></g><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/>
-                        <g/>
-                    </svg>
-                    <svg width="40" class="js-bandeira-us" style="enable-background:new 0 0 300 300;" version="1.1" viewBox="0 0 300 300" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <g><rect height="120" style="fill:#FFFFFF;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" width="240" x="34" y="94"/><rect height="24" style="fill:#F97DA3;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" width="240" x="34" y="70"/><rect height="24" style="fill:#F97DA3;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" width="240" x="34" y="118"/><rect height="24" style="fill:#F97DA3;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" width="240" x="34" y="166"/><rect height="30" style="fill:#F97DA3;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" width="240" x="34" y="214"/><polygon points="   154,70 34,70 34.176,166 154,166  " style="fill:#288EEA;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="62" x2="62" y1="94" y2="110"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="54" x2="70" y1="102" y2="102"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="94" x2="94" y1="94" y2="110"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="86" x2="102" y1="102" y2="102"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="126" x2="126" y1="94" y2="110"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="118" x2="134" y1="102" y2="102"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="94" x2="94" y1="126" y2="142"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="86" x2="102" y1="134" y2="134"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="126" x2="126" y1="126" y2="142"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="118" x2="134" y1="134" y2="134"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="62" x2="62" y1="126" y2="142"/><line style="fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="54" x2="70" y1="134" y2="134"/></g><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/>
-                        <g/>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 transition-transform js-idiomas-seta">
-                        <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clip-rule="evenodd" />
-                    </svg>
-                    <div class="rounded-md shadow-md hidden flex-col absolute bg-white z-10 right-0 top-12 divide-y divide slate-100 text-slate-600 js-idiomas-modal">
-                        <span data-idioma="us" class="block pl-4 pr-20 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors js-idiomas-opcao">en-us</span>
-                        <span data-idioma="br" class="block pl-4 pr-20 py-3 cursor-pointer whitespace-nowrap hover:bg-slate-100 hover:bg-opacity-80 transition-colors js-idiomas-opcao">pt-br</span>
-                    </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-slate-400 cursor-pointer md:w-9 md:h-9 js-botao-sonar">
+                    <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 001.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06zM18.584 5.106a.75.75 0 011.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 11-1.06-1.06 8.25 8.25 0 000-11.668.75.75 0 010-1.06z" />
+                    <path d="M15.932 7.757a.75.75 0 011.061 0 6 6 0 010 8.486.75.75 0 01-1.06-1.061 4.5 4.5 0 000-6.364.75.75 0 010-1.06z" />
+                </svg>
+                <audio></audio>
+            </div>
+            <div class="py-5 mt-8">
+                <div class="relative pl-4 before:absolute before:w-1 before:top-0 before:bottom-0 before:left-0 before:bg-[#4d59fb]">
+                    <span class="text-xl font-medium">Meaning</span>
+                    <p class="mt-2 text-slate-500 js-palavra-significado"></p>
+                </div>
+            </div>
+            <div class="py-5">
+                <div class="relative pl-4 before:absolute before:w-1 before:top-0 before:bottom-0 before:left-0 before:bg-[#4d59fb]">
+                    <span class="text-xl font-medium">Example</span>
+                    <p class="mt-2 text-slate-500 italic js-palavra-exemplo">""</p>
+                </div>
+            </div>
+            <div class="py-5">
+                <div class="relative pl-4 before:absolute before:w-1 before:top-0 before:bottom-0 before:left-0 before:bg-[#4d59fb]">
+                    <span class="text-xl font-medium">Synonymus</span>
+                    <p class="mt-2 text-slate-500 js-palavra-sinonimo"></p>
                 </div>
             </div>
         </div>
-    </header>
-    <main class="max-w-xl mx-auto">
-        <div class="pb-6">
-            <div class="flex flex-col gap-1">
-                <div class="w-full relative divide-x divide-slate-300">
-                    <input class="w-full rounded-md border border-transparent p-3 pr-20 bg-slate-200 placeholder-slate-400 focus:border focus:border-slate-300 focus:outline-none js-pesquisar-campo" type="text" name="word" id="word" placeholder="Eg: apple">
-                    <span class="w-[77px] rounded-r-md absolute right-0 bottom-0 h-full flex justify-center items-center cursor-pointer hover:bg-slate-300 hover:bg-opacity-60 hover:transition-colors duration-200 js-pesquisar-botao">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-slate-400">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                        </svg>
-                    </span>
-                </div>
-                <label class="text-slate-400 text-opacity-70 text-sm js-label" for="word">Type the word here...</label>
-            </div>
-        </div>
-        <div class="flex flex-col gap-8 opacity-0 transition-opacity duration-300 js-container-markup"></div>
-    </main>
+    </section>
     <script src="js/index.js"></script>
 </body>
 </html>
