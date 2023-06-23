@@ -1,45 +1,49 @@
 (() => {
     document.addEventListener('DOMContentLoaded', () => {
-        modalFontes()
-        modalIdiomas()
+        menu()
         requisicoesApi()
     })
 
-
     const $body = document.querySelector('body')
+    const $container = document.querySelector('.js-card-container')
     const $pesquisarCampo = document.querySelector('.js-pesquisar-campo')
-    const $containerTextosDinamicos = document.querySelector('.js-container-markup')
+    const $label = document.querySelector('.js-label')
 
-    const modalFontes = () => {
-        const $fontesBotao = document.querySelector('.js-fontes-botao')
-        const $fontesBotaoSeta = document.querySelector('.js-fontes-seta')
-        const $modalFontes = document.querySelector('.js-fontes-modal')
+    const menu = () => {
+        const $menuLateralBtn = document.querySelector('.js-menu-lateral-btn')
+        const $menuLateral = document.querySelector('.js-menu-lateral')
+        const $menuLateralInternoUm = document.querySelector('.js-menu-lateral-interno-1')
+        const $btnFontes = document.querySelector('.js-fontes-btn')
+        const $vetorFontes = document.querySelector('.js-fontes-vetor')
         const $fontesOpcoes = document.querySelectorAll('.js-fontes-opcao')
 
-        $fontesBotao.addEventListener('click', () => {
-            modalFontesMostrar()
-            modalFontesEsconder()
+        $menuLateralBtn.addEventListener('click', () => {
+            abreFecha($menuLateral)
+        })
+
+        $btnFontes.addEventListener('click', () => {
+            menuFontesAbreFecha()
         })
 
         fontesTrocar()
-        idiomaTrocar()
+        menuFontesEsconder()
 
 
-        // funcoes internas
-        function modalFontesMostrar() {
-            mostrar($modalFontes)
-            $fontesBotaoSeta.classList.toggle('rotate-180')
+        // funcoes
+        function menuFontesAbreFecha() {
+            abreFecha($menuLateralInternoUm)
+            $vetorFontes.classList.toggle('rotate-180')
         }
 
-        function modalFontesEsconder() {
+        function menuFontesEsconder() {
             $body.addEventListener('click', (evento) => {
 
-                if (evento.target.closest('.js-fontes-botao')) {
+                if (evento.target.closest('.js-menu-lateral')
+                ||  evento.target == $menuLateralBtn) {
                     return
                 }
 
-                esconder($modalFontes)
-                $fontesBotaoSeta.classList.remove('rotate-180')
+                $menuLateral.classList.add('hidden')
             })
         }
 
@@ -69,94 +73,13 @@
                 })
             })
         }
-
-        function idiomaTrocar() {
-            const $idiomasOpcao = document.querySelectorAll('.js-idiomas-opcao')
-
-            $idiomasOpcao.forEach($idiomaOpcao => {
-                $idiomaOpcao.addEventListener('click', () => {
-                    const idiomaEscolhido = $idiomaOpcao.getAttribute('data-idioma')
-
-                    $body.setAttribute('data-idioma', idiomaEscolhido)
-                    elementosAlterar()
-                })
-            })
-        }
-
-        function elementosAlterar() {
-            const $bandeiraBr = document.querySelector('.js-bandeira-br')
-            const $bandeiraUs = document.querySelector('.js-bandeira-us')
-            const $dicionarioTitulo = document.querySelector('.js-dicionario-titulo')
-            const $label = document.querySelector('.js-label')
-
-            if ($body.getAttribute('data-idioma') == 'br') {
-                $bandeiraUs.classList.add('hidden')
-                $bandeiraBr.classList.remove('hidden')
-
-                $dicionarioTitulo.innerHTML = 'Dicionário'
-                $label.innerHTML = 'Digite a palavra aqui...'
-
-                $pesquisarCampo.placeholder = 'ex: maçã'
-                $pesquisarCampo.value = ''
-
-                textosAnimacaoSumir($containerTextosDinamicos)
-
-                setTimeout(() => {
-                    $containerTextosDinamicos.innerHTML = ''
-                }, 300);
-            } else {
-                $bandeiraUs.classList.remove('hidden')
-                $bandeiraBr.classList.add('hidden')
-
-                $dicionarioTitulo.innerHTML = 'Dictionary'
-                $label.innerHTML = 'Type the word here...'
-
-                $pesquisarCampo.placeholder = 'eg: apple'
-                $pesquisarCampo.value = ''
-
-                textosAnimacaoSumir($containerTextosDinamicos)
-
-                setTimeout(() => {
-                    $containerTextosDinamicos.innerHTML = ''
-                }, 300);
-            }
-        }
-    }
-
-    const modalIdiomas = () => {
-        const $idiomasBotao = document.querySelector('.js-idiomas-botao')
-        const $modalIdiomas = document.querySelector('.js-idiomas-modal')
-        const $idiomasBotaoSeta = document.querySelector('.js-idiomas-seta')
-
-        $idiomasBotao.addEventListener('click', () => {
-            modalIdiomasMostrar()
-            modalIdiomasEsconder()
-        })
-
-        function modalIdiomasMostrar() {
-            mostrar($modalIdiomas)
-            $idiomasBotaoSeta.classList.toggle('rotate-180')
-        }
-
-        function modalIdiomasEsconder() {
-            addEventListener('click', (evento) => {
-
-                if (evento.target.closest('.js-idiomas-botao')) {
-                    return
-                }
-
-                esconder($modalIdiomas)
-                $idiomasBotaoSeta.classList.remove('rotate-180')
-            })
-        }
     }
 
     const requisicoesApi = () => {
         const $pesquisarBotao = document.querySelector('.js-pesquisar-botao')
-        const $containerTextosDinamicos = document.querySelector('.js-container-markup')
 
         $pesquisarBotao.addEventListener('click', () => {
-            idiomaValidar()
+            palavraValidar()
         })
 
         $pesquisarCampo.addEventListener('keydown', () => {
@@ -164,164 +87,68 @@
 
             function teclaEnter(event) {
                 if (event.keyCode === 13) {
-                    idiomaValidar()
+                    palavraValidar()
                 }
               }
         })
 
-
-        // funcoes
-        function requisicaoUs() {
-            const palavraPesquisada = $pesquisarCampo.value
-            const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${palavraPesquisada}`
-
-            fetch(url)
-            .then(response => {
-                return response.json()
-            })
-            .then(data => {
-                const conteudo =
-                `
-                    <div>
-                        <h2 class="text-4xl font-bold js-titulo-dinamico">${data[0].word}</h2>
-                        <div class="mt-1.5 text-slate-400 text-opacity-70">
-                            <span>${data[0].meanings[0].partOfSpeech}</span>
-                            <span>${data[0].phonetic || ""}</span>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <span class="text-slate-400 text-xl relative flex flex-col after:absolute after:left-24 after:right-0 after:translate-y-1/2 after:top-1/2 after:h-px after:bg-slate-300 after:bg-opacity-70">Meaning</span>
-                        <span>${data[0].meanings[0].definitions[0].definition}</span>
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <span class="text-slate-400 text-xl relative flex flex-col after:absolute after:left-24 after:right-0 after:translate-y-1/2 after:top-1/2 after:h-px after:bg-slate-300 after:bg-opacity-70">Example</span>
-                        <div class="pl-4 italic relative before:absolute before:h-full before:w-1 before:left-0 before:bg-slate-600">
-                            <span>${data[0].meanings[0].definitions[0].example || "<span class=\"text-slate-400 text-lg\">...</span>"}</span>
-                        </div>
-                    </div>
-                `
-
-                // aplica transicao na entrada dos textos
-                textosTransicao()
-
-
-                // funcoes internas
-                function textosTransicao() {
-                    textosAnimacaoSumir($containerTextosDinamicos)
-
-                    setTimeout(() => {
-                        $containerTextosDinamicos.innerHTML = ''
-                        textosAnimacaoAparecer($containerTextosDinamicos)
-                        $containerTextosDinamicos.insertAdjacentHTML('beforeend', conteudo)
-                    }, 300)
-                }
-            }).catch(() => {
-                const $markupErro =
-                `
-                <h2 class="text-3xl font-bold">no definitions found</h2>
-                <div class="flex flex-col gap-2">
-                    <p>Sorry pal, we couldn't find definitions for the word you were looking for...</p>
-                    <p>You can try the search again at later time or <span class="font-bold">change the language in the menu above</span>.</p>
-                </div>
-                
-                `
-
-                textosAnimacaoSumir($containerTextosDinamicos)
-
-                setTimeout(() => {
-                    textosAnimacaoAparecer($containerTextosDinamicos)
-                    $containerTextosDinamicos.innerHTML = $markupErro
-                }, 300)
-            })
-        }
-
-        function requisicaoBr() {
-            const palavraPesquisada = $pesquisarCampo.value
-            const url = `https://dicio-api-ten.vercel.app/v2/${palavraPesquisada}`
-
-            fetch(url)
-            .then(response => {
-                return response.json()
-            })
-            .then(data => {
-                const conteudo =
-                `
-                    <div>
-                        <div class="flex justify-between items-center">
-                            <h2 class="text-4xl font-bold js-titulo-dinamico">${palavraPesquisada.toLowerCase()}</h2>
-                        </div>
-                        <div class="flex flex-col mt-1.5 text-slate-400 text-opacity-70">
-                            <span>${data[0].partOfSpeech}</span>
-                            <span>${data[0].etymology}</span>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <span class="text-slate-400 text-xl relative flex flex-col after:absolute after:left-32 after:right-0 after:translate-y-1/2 after:top-1/2 after:h-px after:bg-slate-300 after:bg-opacity-70">Significado</span>
-                        <span>${data[0].meanings[0] || "<span class=\"text-slate-400 text-lg\">...</span>"}</span></span>
-                    </div>
-                `
-
-                // aplica transicao na entrada dos textos
-                textosTransicao()
-
-
-                // funcoes internas
-                function textosTransicao() {
-                    textosAnimacaoSumir($containerTextosDinamicos)
-
-                    setTimeout(() => {
-                        $containerTextosDinamicos.innerHTML = ''
-                        textosAnimacaoAparecer($containerTextosDinamicos)
-                        $containerTextosDinamicos.insertAdjacentHTML('beforeend', conteudo)
-                    }, 300)
-                }
-            }).catch(() => {
-                const $markupErro =
-                `
-                <h2 class="text-3xl font-bold">nenhuma definição encontrada</h2>
-                <div class="flex flex-col gap-2">
-                    <p>Desculpe amigo, não encontramos definições para a palavra que você estava procurando...</p>
-                    <p>Você pode tentar a pesquisa novamente mais tarde ou <span class="font-bold">alterar o idioma no menu acima</span>.</p>
-                </div>
-                
-                `
-
-                textosAnimacaoSumir($containerTextosDinamicos)
-
-                setTimeout(() => {
-                    textosAnimacaoAparecer($containerTextosDinamicos)
-                    $containerTextosDinamicos.innerHTML = $markupErro
-                }, 300)
-            })
-        }
-
-        function idiomaValidar() {
-            if ($body.getAttribute('data-idioma') == 'us') {
-                requisicaoUs()
+        function dados(resultado, palavra) {
+            if (resultado.title) {
+                $label.innerHTML = `We couldn't find definitions for "<span class="text-slate-800">${palavra}</span>"...`
+                $container.classList.remove('ativo')
             }
             else {
-                requisicaoBr()
+                $label.innerHTML = 'Type any word here to get the meaning...'
+                $container.classList.add('ativo')
+
+                document.querySelector('.js-palavra-pesquisada').innerHTML = resultado[0].word
+                document.querySelector('.js-palavra-tipo').innerHTML = `${resultado[0].meanings[0].partOfSpeech}`
+                document.querySelector('.js-palavra-fonetica').innerHTML = `${resultado[0].phonetic || ""}`
+                document.querySelector('.js-palavra-significado').innerHTML = `${resultado[0].meanings[0].definitions[0].definition}`
+                document.querySelector('.js-palavra-exemplo').innerHTML = `"${resultado[0].meanings[0].definitions[0].example || "<span class=\"text-lg\">...</span>"}"`
+                document.querySelector('.js-palavra-sinonimo').innerHTML = `${resultado[0].meanings[0].synonyms[0] || "<span class=\"text-lg\">...</span>"}`
+
+                const $sonar = document.querySelector('audio')
+                const $sonarBotao = document.querySelector('.js-botao-sonar')
+
+                $sonar.setAttribute('src', resultado[0].phonetics[0].audio)
+
+                $sonar.getAttribute('src') == '' ?
+                $sonarBotao.classList.add('hidden') :
+                $sonarBotao.classList.remove('hidden')
+
+
+                $sonarBotao.addEventListener('click', () => {
+                    $sonar.play()
+                })
             }
+        }
+
+        function requisicao(palavra) {
+            $label.innerHTML = `Searching the meaning of "<span class="text-slate-800">${palavra}</span>"`
+            const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${palavra}`
+
+            fetch(url)
+            .then(response => {
+                return response.json()
+            })
+            .then(resultado => {
+                dados(resultado, palavra)
+            })
+        }
+
+        function palavraValidar() {
+            const palavraPesquisada = $pesquisarCampo.value.toLowerCase().trim()
+
+            if (palavraPesquisada == "") {
+                return
+            }
+
+            requisicao(palavraPesquisada)
         }
     }
 
-    function textosAnimacaoSumir($alvo) {
-        $alvo.classList.remove('opacity-100')
-        $alvo.classList.add('opacity-0')
-    }
-
-    function textosAnimacaoAparecer($alvo) {
-        $alvo.classList.add('opacity-100')
-        $alvo.classList.remove('opacity-0')
-    }
-
-    function esconder($alvo) {
-        $alvo.classList.remove('flex')
-        $alvo.classList.add('hidden')
-    }
-
-    function mostrar($alvo) {
+    function abreFecha($alvo) {
         $alvo.classList.toggle('hidden')
-        $alvo.classList.toggle('flex')
     }
 })()
