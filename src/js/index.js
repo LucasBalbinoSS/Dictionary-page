@@ -1,7 +1,7 @@
 (() => {
     document.addEventListener('DOMContentLoaded', () => {
         menu()
-        requisicoesApi()
+        requisicaoApi()
     })
 
     const $body = document.querySelector('body')
@@ -75,7 +75,7 @@
         }
     }
 
-    const requisicoesApi = () => {
+    const requisicaoApi = () => {
         const $pesquisarBotao = document.querySelector('.js-pesquisar-botao')
 
         $pesquisarBotao.addEventListener('click', () => {
