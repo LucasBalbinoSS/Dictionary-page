@@ -1,19 +1,19 @@
-# Dictionary Web Page Project
+# Dictionary page
+👉 [Click here to see the project](https://lucasbalbinoss.github.io/Dictionary-page/src/index.html) <br>
+ The dictionary page is a JavaScript training project. 📚
 
-## Introduction
+On that dictionary page the user can:
+- Search for any english word and see it's meaning, example and synonym.
+- Open a stilization menu by clicking on the hamburguer button
+- Change the `font-family` of the whole page(`mono`, `serif`, `sans-serif`)
+- Hear the pronunciation of the searched word
 
-This project showcases my journey of learning and mastering JavaScript, as well as leveraging APIs, through the development of a dictionary web page. The objective of this project was to create an interactive platform where users can search for English words, obtain their meanings, example sentences, and synonyms. Additionally, the web page allows users to customize the font style, choosing from three options: mono, sans-serif, and serif.
+---
 
-## Technologies Used
+## Resolutions
 
-- HTML
-- CSS (with Tailwind CSS framework)
-- JavaScript
+#### Desktop 👇
+![Print 2023-06-24 at 00 36 08](https://github.com/LucasBalbinoSS/Dictionary-page/assets/82191848/dbd40e25-65ab-4250-8c80-f4a3ea4a38cb)
 
-## Features
-
-1. **Word Search**: Users can easily search for any word of their choice and retrieve its definition, example sentence, and synonyms.
-
-2. **Font Customization**: The web page provides three font options (mono, sans-serif, and serif) to cater to the users' preference and enhance readability.
-
-3. **Pronunciation Sound**: Leveraging the power of APIs, the web page allows users to listen to the correct pronunciation of the searched word with just a single click.
+#### RWD 👇
+<img width="195" alt="rwd" src="https://github.com/LucasBalbinoSS/Dictionary-page/assets/82191848/cc5c86bf-80ac-4729-9cf7-10dae8a822ec">
